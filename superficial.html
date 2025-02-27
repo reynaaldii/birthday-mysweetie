@@ -1,0 +1,21 @@
+<button id="singButton">Sing a Song 🎶</button>
+
+<div id="lyricsContainer"></div>
+
+<script>
+document.getElementById("singButton").addEventListener("click", function() {
+    fetch("/sing", { method: "POST" })
+    .then(response => response.json())
+    .then(data => {
+        let lyricsContainer = document.getElementById("lyricsContainer");
+        lyricsContainer.innerHTML = ""; // Clear previous lyrics
+        data.lyrics.forEach((line, index) => {
+            setTimeout(() => {
+                let p = document.createElement("p");
+                p.textContent = line;
+                lyricsContainer.appendChild(p);
+            }, index * 2000);
+        });
+    });
+});
+</script>

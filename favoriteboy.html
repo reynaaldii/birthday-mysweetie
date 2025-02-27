@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Boy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background: #FFB6C1; /* Pink full background */
+            font-family: "Century Gothic", Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        h1 {
+            color: #000000;
+            font-size: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Gambar gradasi minion */
+        .background-image, .background-image-left, .background-image-right {
+            position: absolute;
+            opacity: 0.6; /* Tingkatkan transparansi */
+            z-index: -1;
+        }
+
+        .background-image {
+            top: 47%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30%;
+            max-width: 550px;
+        }
+
+        .background-image-left {
+            top: 42%;
+            left: -2%;
+            transform: translateY(-55%);
+            width: 39%;
+            max-width: 560px;
+        }
+
+        .background-image-right {
+            top: 48%;
+            right: -2%;
+            transform: translateY(-60%);
+            width: 39%;
+            max-width: 580px;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        table {
+            width: 95%;
+            max-width: 1000px;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        /* Perbaikan agar gambar tidak buram */
+        .fav-img {
+            width: 200px; /* Ukuran diperbesar */
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover; /* Menjaga proporsi */
+            image-rendering: auto; /* Mencegah gambar buram */
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Tombol kembali */
+        #backButton {
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        #backButton:hover {
+            background-color: pink;
+        }
+
+        audio {
+            margin-top: 10px;
+            margin-bottom: 30px;
+            width: 400px;
+            height: 30px;
+        }
+
+        /* ======================== */
+        /* ===== RESPONSIVE CSS ===== */
+        /* ======================== */
+
+        /* Jika layar kurang dari 768px (Tablet & Mobile) */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .fav-img {
+                width: 150px;  /* Gambar lebih kecil */
+                height: 150px;
+            }
+
+            table {
+                width: 100%; /* Tabel lebih fleksibel */
+            }
+
+            audio {
+                width: 300px; /* Audio lebih kecil */
+            }
+
+            #backButton {
+                font-size: 16px; /* Ukuran tombol lebih kecil */
+                padding: 10px 20px;
+            }
+        }
+
+        /* Jika layar sangat kecil (max 480px) */
+        @media (max-width: 480px) {
+            .table-container {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            table {
+                display: flex;
+                flex-direction: column;
+            }
+
+            td {
+                display: block;
+                width: 100%;
+                border: none;
+                padding: 10px;
+            }
+
+            .fav-img {
+                width: 100px;  /* Gambar lebih kecil */
+                height: 100px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            #backButton {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>💙 Favorite Boy 💙</h1>
+
+    <audio controls autoplay loop>
+        <source src="bmfsza.mp3" type="audio/mp3" />
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Gambar transparan di belakang tabel -->
+    <img src="miniongradasi1.png" alt="Boy Background" class="background-image">
+    <img src="miniongradasi2.png" alt="Boy Background Left" class="background-image-left">
+    <img src="miniongradasi3.png" alt="Boy Background Right" class="background-image-right">
+
+    <!-- Tabel Foto -->
+    <div class="table-container">
+        <table>
+            <tr>
+                <td><img src="boy1.jpg" alt="Boy 1" class="fav-img"></td>
+                <td><img src="boy2.jpg" alt="Boy 2" class="fav-img"></td>
+                <td><img src="boy3.jpg" alt="Boy 3" class="fav-img"></td>
+                <td><img src="boy4.jpg" alt="Boy 4" class="fav-img"></td>
+                <td><img src="boy5.jpg" alt="Boy 5" class="fav-img"></td>
+            </tr>
+            <tr>
+                <td><img src="boy6.jpg" alt="Boy 6" class="fav-img"></td>
+                <td><img src="boy7.jpg" alt="Boy 7" class="fav-img"></td>
+                <td><img src="boy8.jpg" alt="Boy 8" class="fav-img"></td>
+                <td><img src="boy9.jpg" alt="Boy 9" class="fav-img"></td>
+                <td><img src="boy10.jpg" alt="Boy 10" class="fav-img"></td>
+            </tr>
+        </table>
+    </div>
+
+    <button id="backButton" onclick="window.location.href='index.html'">Back to Home</button>
+
+</body>
+</html>

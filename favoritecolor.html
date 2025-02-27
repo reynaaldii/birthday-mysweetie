@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite Color Sweetie</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      body {
+        font-family: "Century Gothic", Arial, sans-serif;
+        background: linear-gradient(to bottom, #FFDAB9, #FFB6C1);
+        text-align: center;
+        padding: 20px;
+        position: relative;
+      }
+
+      h1 {
+        color: #ff6b81;
+        font-size: 28px;
+      }
+
+      /* Styling tabel */
+      .table-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        position: relative;
+      }
+
+      table {
+        width: 70%;
+        max-width: 600px;
+        border-collapse: collapse;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: left;
+      }
+
+      td {
+        padding: 15px;
+        border-bottom: 1px solid #ffb6c1;
+      }
+
+      .fav-img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 10px;
+        display: block;
+        margin: auto;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Warna transparan untuk tiap baris */
+      tr:nth-child(1) {
+        background: rgba(82, 24, 24, 0.452); /* Coklat transparan */
+      }
+      tr:nth-child(2) {
+        background: rgba(0, 0, 0, 0.507); /* Hitam transparan */
+        color: white;
+      }
+      tr:nth-child(3) {
+        background: rgba(255, 182, 193, 0.651); /* Peach transparan */
+      }
+
+      /* Tombol kembali */
+      #backButton {
+        margin-top: 20px;
+        padding: 12px 24px;
+        font-size: 18px;
+        cursor: pointer;
+        background-color: white;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      #backButton:hover {
+        background-color: pink;
+      }
+
+      /* Gambar di kanan dan kiri tabel */
+      .side-img {
+        width: 180px;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .left-img {
+        left: 20px;
+        width: 180px;
+      }
+
+      .right-img {
+        right: 20px;
+        width: 180px;
+      }
+
+      /* Gambar tambahan di kiri atas dan kanan bawah */
+      .top-left-img {
+        position: absolute;
+        top: 30px;
+        left: 20px;
+        width: 150px;
+        height: auto;
+      }
+
+      .bottom-right-img {
+        position: absolute;
+        bottom: 30px;
+        right: 20px;
+        width: 150px;
+        height: auto;
+      }
+
+      /* ======================== */
+      /* ===== RESPONSIVE CSS ===== */
+      /* ======================== */
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 24px;
+        }
+
+        .fav-img {
+          width: 100px;
+          height: 100px;
+        }
+
+        table {
+          width: 90%;
+        }
+
+        td {
+          font-size: 14px;
+          padding: 10px;
+        }
+
+        #backButton {
+          font-size: 16px;
+          padding: 10px 20px;
+        }
+
+        /* Atur ulang gambar agar tidak menumpuk */
+        .side-img {
+          width: 120px;
+        }
+
+        .left-img {
+          left: 5px;
+        }
+
+        .right-img {
+          right: 5px;
+        }
+
+        .top-left-img {
+          width: 120px;
+          left: 10px;
+          top: 20px;
+        }
+
+        .bottom-right-img {
+          width: 120px;
+          right: 10px;
+          bottom: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .table-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        table {
+          width: 100%;
+        }
+
+        .fav-img {
+          width: 80px;
+          height: 80px;
+        }
+
+        td {
+          font-size: 12px;
+          padding: 8px;
+        }
+
+        h1 {
+          font-size: 20px;
+        }
+
+        #backButton {
+          font-size: 14px;
+          padding: 8px 16px;
+        }
+
+        /* Hilangkan gambar di samping tabel */
+        .side-img {
+          display: none;
+        }
+
+        .top-left-img,
+        .bottom-right-img {
+          width: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Favorite Color 🤎🖤🩷</h1>
+
+    <div class="table-container">
+      <img src="minioncolor1.png" alt="Left Image" class="side-img left-img">
+      <table>
+        <tr>
+          <td><img src="colorbrown.jpeg" alt="Brown" class="fav-img"></td>
+          <td><strong>Brown:</strong> uty favorite color that my bby usually wear for a matching outfit 🤎</td>
+        </tr>
+        <tr>
+          <td><img src="colorblack.jpeg" alt="Black" class="fav-img"></td>
+          <td><strong>Black:</strong> basic color favorite my sweetie that can be use every day 🖤</td>
+        </tr>
+        <tr>
+          <td><img src="colorpeach.jpeg" alt="Peach" class="fav-img"></td>
+          <td><strong>Peach:</strong> soft and cute colors that my darling likes, from clothes to bags 🩷</td>
+        </tr>
+      </table>
+      <img src="minioncolor2.png" alt="Right Image" class="side-img right-img">
+    </div>
+
+    <img src="abangutyc1.jpg" alt="Top Left Image" class="top-left-img">
+    <img src="abangutyc2.jpg" alt="Bottom Right Image" class="bottom-right-img">
+
+    <button id="backButton" onclick="window.location.href='index.html'">Back to Home</button>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Drink</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background: #FFB6C1; /* Pink full background */
+            font-family: "Century Gothic", Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative; /* Untuk menempatkan gambar besar */
+        }
+
+        h1 {
+            color: #000000;
+            position: relative;
+            z-index: 2; /* Supaya teks tetap di atas gambar */
+            font-size: 28px;
+        }
+
+        /* Gambar besar sebagai background tengah */
+        .bg-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 770px;
+            opacity: 0.4; /* Transparansi supaya tidak mengganggu teks */
+            z-index: 1; /* Supaya ada di belakang tabel */
+        }
+
+        .table-container {
+            position: relative;
+            z-index: 2; /* Supaya tabel tetap di atas gambar */
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        table {
+            width: 90%;
+            max-width: 650px;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.7); /* Transparansi ditingkatkan */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Transparansi border */
+            font-size: 18px;
+            color: #333; /* Warna teks lebih gelap agar terbaca */
+        }
+
+        .fav-img {
+            width: 120px; 
+            height: 150px; 
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Tombol kembali */
+        #backButton {
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        #backButton:hover {
+            background-color: pink;
+        }
+
+        /* ======================== */
+        /* ===== RESPONSIVE CSS ===== */
+        /* ======================== */
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .table-container {
+                width: 100%;
+            }
+
+            table {
+                width: 90%;
+            }
+
+            td {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .fav-img {
+                width: 100px;
+                height: 120px;
+            }
+
+            .bg-img {
+                opacity: 0.3;
+            }
+
+            #backButton {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .table-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            .fav-img {
+                width: 80px;
+                height: 100px;
+            }
+
+            td {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .bg-img {
+                opacity: 0.2;
+                max-width: 500px;
+            }
+
+            #backButton {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🥤 Favorite Drink 🥤</h1>
+
+    <!-- Gambar besar di belakang tabel -->
+    <img src="miniondrink.jpeg" alt="Big Drink" class="bg-img">
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <td><img src="drinkes.png" alt="Es Campa" class="fav-img"></td>
+                <td><strong>Es Campa:</strong> Minuman tanpa rasa tapi paling favorite setelah makan uty 🧊</td>
+            </tr>
+            <tr>
+                <td><img src="drinkcoffe.png" alt="Coffee" class="fav-img"></td>
+                <td><strong>Coffee:</strong> Kopi bikin susah tidur tapi tetep diminum karena enak ☕</td>
+            </tr>
+            <tr>
+                <td><img src="drinkmatcha.png" alt="Matcha" class="fav-img"></td>
+                <td><strong>Matcha:</strong> Minuman hijau yang rasanya khas, uty suka banget kaya orang Jepang 🍵</td>
+            </tr>
+            <tr>
+                <td><img src="drinklemontea.png" alt="Lemon Tea" class="fav-img"></td>
+                <td><strong>Lemon Tea:</strong> Manis asem seger, bikin mood jadi happy lagi 🍋</td>
+            </tr>
+        </table>
+    </div>
+
+    <button id="backButton" onclick="window.location.href='index.html'">Back to Home</button>
+
+</body>
+</html>

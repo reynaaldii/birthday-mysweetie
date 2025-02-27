@@ -1,0 +1,495 @@
+    <!DOCTYPE html>
+    <html lang="zh">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Heart</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <style>
+          /* 🔹 Responsif untuk layar berukuran kecil (smartphone) */
+@media screen and (max-width: 768px) {
+  /* Ukuran teks lebih kecil */
+  h1 {
+    font-size: 18px;
+  }
+
+  /* Perbaiki layout tombol */
+  #clickButton {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  /* Sesuaikan ukuran audio */
+  audio {
+    width: 100%;
+  }
+
+  /* Sesuaikan posisi gambar utama */
+  .minion-center img {
+    width: 80%;
+    max-width: 350px;
+  }
+
+  /* Sesuaikan ukuran gambar di kiri dan kanan */
+  .side-image {
+    width: 180px;
+  }
+
+  .left {
+    left: -120px;
+  }
+
+  .right {
+    width: 200px;
+    right: -120px;
+  }
+
+  /* Atur ulang posisi menu */
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .menu-item {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* Perkecil ukuran minion */
+  .minion-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .minion-1,
+  .minion-2,
+  .minion-3,
+  .minion-4,
+  .minion-5 {
+    width: 80px;
+    height: auto;
+  }
+
+  /* 🔹 Perbaiki tampilan Live Chat */
+  #chat-container {
+    width: 90%;
+    bottom: 10px;
+    right: 5%;
+  }
+
+  #chat-box {
+    height: 100px;
+    font-size: 14px;
+  }
+
+  #chat-input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  #send-btn {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+          .side-image {
+  position: absolute;
+  top: 50%;
+  width: 420px;
+  height: auto;
+  transform: translateY(-50%);
+}
+
+.left {
+  left: -300px;
+}
+
+.right {
+  width: 490px;
+  right: -380px;
+}
+
+          /* Minion besar di tengah halaman */
+    .minion-center {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; /* Sesuaikan ukuran */
+      height: auto;
+      opacity: 0.5; /* Atur transparansi */
+      z-index: -1; /* Tetap di belakang elemen lain */
+    }
+    /* Tambahkan gradasi transparan di atas gambar */
+    .minion-center::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 182, 193, 0.3), /* Pink transparan */
+        rgba(255, 218, 185, 0.3)  /* Peach transparan */
+      );
+      border-radius: 15px;
+    }
+          /* Set the background */
+          body {
+            background: linear-gradient(to bottom, #FFDAB9, #FFB6C1),
+                        url("minion-bg.jpg");
+            background-size: cover;
+            background-position: center;
+            font-family: "Century Gothic", Arial, sans-serif; /* Ubah ke Century Gothic */
+            font-style: general;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+          }
+
+          h1 {
+            text-align: center;
+            margin-top: 5px;
+          }
+
+          #clickButton {
+            padding: 10px 20px;
+            font-size: 15px;
+            cursor: pointer;
+            background-color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: -5px;
+            display: block;
+            text-align: center;
+            font-weight: bold;
+          }
+
+          #clickButton:hover {
+            background-color: rgb(255, 172, 179);
+          }
+
+          /* Styling for the menu container */
+          .menu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+            width: 100%;
+            text-align: center;
+          }
+
+          .menu {
+            display: flex;
+            justify-content: space-evenly;
+            width: 80%;
+            text-align: center;
+          }
+
+          .menu-item {
+            font-size: 15px;
+            padding: 6px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .menu-item:hover {
+            background-color: rgb(255, 172, 179);
+          }
+
+          #countdown {
+            margin-top: 0px;
+            font-size: 18px;
+          }
+
+          audio {
+      margin-top: 10px;
+      width: 350px; /* Ubah ukuran lebar */
+      height: 30px; /* Ubah ukuran tinggi */
+          }
+
+          #description {
+            margin-top: 0px;
+            text-align: center;
+            font-size: 15px;
+            color: black;
+            font-weight: italic;
+          }
+
+          /* Minion Images */
+          .minion-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 0px;
+          }
+
+          /* Setiap minion punya ukuran sendiri */
+          .minion-1 {
+            width: 165px;
+            height: 150px;
+            margin-top: 25px;
+          }
+
+          .minion-2 {
+            width: 105px;
+            height: 200px;
+            margin-top: -15px;
+          }
+
+          .minion-3 {
+            width: 150px;
+            height: 150px;
+            margin-top: 25px;
+          }
+
+          .minion-4 {
+            width: 150px;
+            height: 170px;
+            margin-top: 25px;
+          }
+
+          .minion-5 {
+            width: 105px;
+            height: 220px;
+            margin-top: -20px;
+          }
+
+          /* 🔹 Tambahkan class khusus untuk mengatur posisi tiap minion */
+          .minion-offset-1 {
+            transform: translateX(-165px);
+          }
+
+          .minion-offset-2 {
+            transform: translateX(-90px);
+          }
+
+          .minion-offset-3 {
+            transform: translateX(-20px);
+          }
+
+          .minion-offset-4 {
+            transform: translateX(65px);
+          }
+
+          .minion-offset-5 {
+            transform: translateX(135px);
+          }
+        </style>
+      </head>
+      <body>
+          <div class="minion-center">
+            <img src="sweetie1.png" alt="Big Minion" style="width: 700px; height: auto;" />
+            
+            <!-- Gambar Kiri -->
+            <img src="sweetie2.png" class="side-image left" alt="Left Image" />
+            
+            <!-- Gambar Kanan -->
+            <img src="sweetie3.png" class="side-image right" alt="Right Image" />
+          </div>    
+        <h1>HAPPY BIRTHDAY 24 UTY 𐙚♡</h1>
+        
+        <div id="countdown"></div>
+
+        <audio controls autoplay loop>
+          <source src="fixyou.mp3" type="audio/mp3" />
+          Your browser does not support the audio element.
+        </audio>
+
+        <div id="description">
+          <p>honestly, I don't know what to say because if I say everything, it won't be enough for 1/2 page but infinite, but one thing is for sure, you are a gift, a blessing, and a light in my life. Thank you for choosing me as your lover and for guiding me to be better and stronger than before. I don't know if I was found by another woman, would it be like this, honey? Of course not because different people have different luck. I am one of the very, very lucky people to have you and I hope you think so too, my love. I am proud of you, honey, because every day you give me support and complete everything that needs to be done. I hope we can be together in the next 1/2 year because from the start I am not a picky person and I am sure that I have chosen you to be my life partner in the future. May your day, honey, always be as beautiful as your face, xixi. May your day, honey, always be given health and happiness. Oh yes, lastly. If you have problems, are sad, or have a headache with work, don't hesitate to tell me, honey. I am here, always there for you. once again, happy birthday, my dear Uty! ✨💖 may the gifts and efforts that you have made while accompanying me can make me happy. may this year be filled with happiness, love, and many beautiful things waiting for you! 🎂🎉</p>
+        </div>
+
+        <button id="clickButton" onclick="window.location.href='loveAnimation.html'">Click this Sweetie ❤︎</button>
+
+        <!-- Kategori Menu -->
+        <div class="menu-container">
+          <div class="menu">
+            <a href="favoritecolor.html" class="menu-item">Favorite Color</a>
+            <a href="favoritefood.html" class="menu-item">Favorite Food</a>
+            <a href="favoritecharacter.html" class="menu-item">Favorite Character</a>
+            <a href="favoritedrink.html" class="menu-item">Favorite Drink</a>
+            <a href="favoriteboy.html" class="menu-item">Favorite Boy</a>
+          </div>
+
+          <!-- Gambar Minion sejajar dengan menu -->
+          <div class="minion-container">
+            <img src="minioncolor.png" class="minion-1 minion-offset-1" />
+            <img src="minioneat.png" class="minion-2 minion-offset-2" />
+            <img src="minioncharacter.png" class="minion-3 minion-offset-3" />
+            <img src="minion1.png" class="minion-4 minion-offset-4" />
+            <img src="minion2.png" class="minion-5 minion-offset-5" />
+          </div>
+        </div>
+
+        <script>
+          function updateCountdown() {
+            const targetDate = new Date("March 6, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const timeRemaining = targetDate - now;
+
+            if (timeRemaining <= 0) {
+              document.getElementById("countdown").innerHTML = "Happy Birthday!";
+            } else {
+              const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+              const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+              const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            
+              document.getElementById("countdown").innerHTML =
+                "Time Remaining: " +
+                days + " day " + 
+                hours + " hours " + 
+                minutes + " minutes " + 
+                seconds + " seconds ";
+            }
+          }
+
+          setInterval(updateCountdown, 1000);
+          updateCountdown();
+        </script>
+      </body>
+      <script>
+        function updateCountdown() {
+            const targetDate = new Date("March 6, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const timeRemaining = targetDate - now;
+
+            if (timeRemaining <= 0) {
+                document.getElementById("countdown").innerHTML = "Happy Birthday!";
+            } else {
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown").innerHTML =
+                    "Time Remaining: " +
+                    days + " day " +
+                    hours + " hours " +
+                    minutes + " minutes " +
+                    seconds + " seconds ";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+    <!-- Tambahkan kode Live Chat di sini -->
+    <div id="chat-container">
+      <div id="chat-header">Live Chat 💬</div>
+      <div id="chat-box"></div>
+      <input type="text" id="chat-input" placeholder="ur expression my sweetie ?..." />
+      <button id="send-btn">Send</button>
+    </div>
+
+    <style>
+      #chat-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 300px;
+        background: rgba(255, 255, 255, 0.349);
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+      }
+
+
+      #chat-header {
+        background: #ffb6c159;
+        padding: 10px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+      }
+      #chat-box {
+        height: 45px;
+        overflow-y: auto;
+        font-size: 12px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      #chat-input {
+        border: none;
+        padding: 5px;
+        width: calc(100% - 10px);
+      }
+      #send-btn {
+        border: none;
+        background: #ffb6c16b;
+        padding: 8px;
+        cursor: pointer;
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let chatBox = document.getElementById("chat-box");
+        let input = document.getElementById("chat-input");
+        let sendBtn = document.getElementById("send-btn");
+
+        // 🔹 Fungsi untuk menampilkan riwayat chat yang tersimpan
+        function loadChatHistory() {
+          let messages = JSON.parse(localStorage.getItem("chatHistory")) || [];
+          messages.forEach((msg) => {
+            displayMessage(msg);
+          });
+        }
+
+        // 🔹 Fungsi untuk menampilkan pesan ke chat-box
+        function displayMessage(message) {
+          let newMessage = document.createElement("div");
+          newMessage.textContent = message;
+          newMessage.style.padding = "5px";
+          newMessage.style.background = "#ffe4e1";
+          newMessage.style.margin = "5px 0";
+          newMessage.style.borderRadius = "5px";
+          chatBox.appendChild(newMessage);
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // 🔹 Muat riwayat chat saat halaman dibuka
+        loadChatHistory();
+
+        sendBtn.addEventListener("click", function () {
+          let message = input.value.trim();
+          if (message) {
+            let formattedMessage = "You: " + message;
+            displayMessage(formattedMessage);
+
+            // 🔹 Simpan pesan ke Local Storage
+            let messages = JSON.parse(localStorage.getItem("chatHistory")) || [];
+            messages.push(formattedMessage);
+            localStorage.setItem("chatHistory", JSON.stringify(messages));
+
+            input.value = "";
+          }
+        });
+      });
+    </script>
+
+</body>
+</html>
+    </html>
